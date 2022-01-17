@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <form th:action="@{/products/edit}" th:method="PUT" th:object="${editProduct}">
+        <input type="number" th:field="*{id}" hidden>
+        <div class="mb-3">
+            <label for="productName" class="form-label">Product name</label>
+            <input type="text" class="form-control" id="productName" th:field="*{name}"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="productStockNumber" class="form-label">Stock number</label>
+            <input type="number" class="form-control" id="productStockNumber" th:field="*{stockNumber}" required>
+        </div>
+        <div class="mb-3">
+            <label for="productImageUrl" class="form-label">Product image URL</label>
+            <input type="text" class="form-control" id="productImageUrl" th:field="*{imageUrl}" required>
+        </div>
+        <div class="mb-3">
+            <label for="productResponsiblePersonName" class="form-label">Product responsible person name</label>
+            <select class="form-control" id="productResponsiblePersonName" th:field="*{responsiblePersonName}">
+                <option value="">Choose...</option>
+                <option value="David Miko">David Miko</option>
+                <option value="Lukáš Havránek">Lukáš Havránek</option>
+                <option value="Nikola Baudišová">Nikola Baudišová</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  </body>
+</html>
